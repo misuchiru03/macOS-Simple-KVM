@@ -33,6 +33,7 @@ fetchrequires(){
         sudo dnf install -y python3-${click,requests}
     elif grep -Eiq "(suse)"; then
         sudo zypper install -y python3-${click,requests}
+    fi
 }
 
 getpython
