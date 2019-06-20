@@ -22,7 +22,7 @@ getpython(){
 
 fetchrequires(){
     cat /etc/*release | if grep -Eiq "void"; then
-        sudo xbps-install -Syu python3-${click,requests}
+        sudo xbps-install -Syu python3-{click,requests}
     elif grep -Eiq "arch"; then
         sudo pacman -Syu python-{click,requests}
     elif grep -Eiq "(debian|ubuntu|pop|mint)"; then
