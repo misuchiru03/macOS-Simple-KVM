@@ -7,27 +7,6 @@ set +x;
 SCRIPTDIR="$(dirname "$0")";
 cd $SCRIPTDIR
 
-initpip() {
-    if [ -x "$(command -v easy_install)" ]; then
-        sudo easy_install pip
-    else
-        echo "Please install python3-pip or easy_install before continuing."
-        exit 1;
-    fi
-    pip install -r requirements.txt --user
-}
-
-getpip(){
-    if [ -x "$(command -v pip3)" ]; then
-        pip3 install -r requirements.txt --user
-    elif [ -x "$(command -v pip)" ]; then
-        pip install -r requirements.txt --user
-    else
-        echo "pip will be installed..." >&2
-        initpip
-    fi
-}
-
 getpython(){
     if [ -x "$(command -v python3)" ]; then
         PYTHONBIN=python3
@@ -41,7 +20,6 @@ getpython(){
     fi
 }
 
-getpip
 getpython
 $PYTHONBIN fetch-macos.py $*
 
